@@ -22,14 +22,14 @@ public class GestorEnemigo {
         Enemigo[] array = enemigos.toArray(new Enemigo[0]);
         int n = array.length;
 
-    // construir el heap máximo
+    // construir el heap maximo
         for (int i = n / 2 - 1; i >= 0; i--) {
             heapify(array, n, i);
         }
 
     // sacar elementos del heap de a uno
         for (int i = n - 1; i >= 0; i--) {
-        // intercambiar la raíz (maximo) con el último elemento
+        // intercambiar la raíz (maximo) con el ultimo elemento
             Enemigo temp = array[0];
             array[0] = array[i];
             array[i] = temp;

@@ -46,31 +46,31 @@ public class MainSort {
 
         System.out.print("Cantidad de enemigos: ");
         int n = sc.nextInt();
-        sc.nextLine(); // limpiar buffer
+        sc.nextLine();
 
         Enemigo[] enemigos = new Enemigo[n];
 
         for (int i = 0; i < n; i++) {
             System.out.println("Enemigo #" + (i + 1));
             System.out.print("Nombre: ");
-            String nombre = sc.nextLine().toLowerCase().strip(); // minúsculas y sin espacios
+            String nombre = sc.nextLine().toLowerCase().strip(); // minusculas y sin espacios
             System.out.print("Nivel de peligrosidad: ");
             int peligrosidad = sc.nextInt();
-            sc.nextLine(); // limpiar buffer
+            sc.nextLine(); 
             enemigos[i] = new Enemigo(nombre, peligrosidad);
         }
 
-        System.out.println("\nElegir atributo para ordenar:");
-        System.out.println("0 = Nombre, 1 = Peligrosidad");
+        System.out.println("\nelegir atributo para ordenar:");
+        System.out.println("0 = nombre, 1 = peligrosidad");
         int clave = sc.nextInt();
         sc.nextLine();
 
-        System.out.print("Orden ascendente? (true/false): ");
+        System.out.print("orden ascendente? (true/false): ");
         boolean ascendente = sc.nextBoolean();
 
         mergeSort(enemigos, clave, ascendente);
 
-        System.out.println("\nEnemigos ordenados:");
+        System.out.println("\nenemigos ordenados:");
         for (Enemigo e : enemigos) {
             System.out.println(e.getNombre() + " - " + e.getPeligrosidad());
         }
