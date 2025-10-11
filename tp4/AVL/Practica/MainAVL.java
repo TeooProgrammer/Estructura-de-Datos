@@ -8,29 +8,55 @@ public class MainAVL {
 
         System.out.println("=====================================");
         System.out.println("🌳 Árbol AVL Interactivo");
-        System.out.println("El árbol se dibuja después de cada inserción, mostrando la Clave y el Factor de Equilibrio (FE).");
+        System.out.println("El árbol se dibuja después de cada operación, mostrando la Clave y el Factor de Equilibrio (FE).");
         System.out.println("=====================================");
-        System.out.println("Ingrese claves enteras para insertar (-1 para terminar):");
 
-        // Ejemplo de pruebas de rotaciones: 10, 20, 30 (simple izquierda)
-        // Ejemplo de pruebas de rotaciones: 30, 10, 20 (doble izquierda-derecha)
-        
         while (true) {
-            System.out.print("Clave: ");
+            System.out.println("\n--- Menú ---");
+            System.out.println("1. Insertar clave");
+            System.out.println("2. Eliminar clave");
+            System.out.println("3. Salir");
+            System.out.print("Opción: ");
+
             if (sc.hasNextInt()) {
-                int clave = sc.nextInt();
-                if (clave == -1) break;
-                arbol.insertar(clave);
+                int opcion = sc.nextInt();
+                int clave;
+
+                switch (opcion) {
+                    case 1:
+                        System.out.print("Ingrese clave a insertar: ");
+                        if (sc.hasNextInt()) {
+                            clave = sc.nextInt();
+                            arbol.insertar(clave);
+                        } else {
+                            System.out.println("Entrada inválida.");
+                            sc.next();
+                        }
+                        break;
+                    case 2:
+                        System.out.print("Ingrese clave a eliminar: ");
+                        if (sc.hasNextInt()) {
+                            clave = sc.nextInt();
+                            arbol.eliminar(clave);
+                        } else {
+                            System.out.println("Entrada inválida.");
+                            sc.next();
+                        }
+                        break;
+                    case 3:
+                        System.out.println("\n=====================================");
+                        System.out.println("Finalizado. Árbol AVL resultante:");
+                        arbol.dibujar();
+                        System.out.println("=====================================");
+                        sc.close();
+                        return;
+                    default:
+                        System.out.println("Opción no válida.");
+                }
             } else {
-                System.out.println("Entrada inválida. Ingrese un número entero.");
-                sc.next(); // Consume la entrada inválida
+                System.out.println("Entrada inválida. Ingrese un número de opción.");
+                sc.next(); 
             }
         }
-
-        System.out.println("\n=====================================");
-        System.out.println("Finalizado. Árbol AVL resultante:");
-        arbol.dibujar();
-        System.out.println("=====================================");
-        sc.close();
     }
 }
