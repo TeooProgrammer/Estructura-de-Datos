@@ -1,16 +1,16 @@
 package Parcial1.p3;
 import java.util.ArrayList; // agregar para el desbordamiento
-import java.util.LinkedList; // agregar para las tablas hash abiertas
+//import java.util.LinkedList; // agregar para las tablas hash abiertas
 
-import tp3.ej3.FuncionesHash;
-import tp3.ej3.HashTable;
+//import tp3.ej3.FuncionesHash;
+//import tp3.ej3.HashTable;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
  // AGREGAR PARA EL DESBORDAMIENTO
 class TablaHashDesbordamiento {
-    static int[] tablaHash;
+    int[] tablaHash;
     ArrayList<Integer> desbordamiento; // arreglo para almacenar valores que no entran en la tabla principal
-    static int tam = 12;
+    int tam = 12;
 
     public TablaHashDesbordamiento() {
         this.tablaHash = new int[this.tam];
@@ -28,15 +28,11 @@ class TablaHashDesbordamiento {
             }
         }
 
-    private static int hash(int clave) {
-        return clave % TablaHashDesbordamiento.getTam();
+    private int hash(int clave) {
+        return clave % this.tam;
     }
 
-    public static int getTam(){
-        return tam;
-    }
-
-    static void addDesbordamiento(int numero) {
+    void addDesbordamiento(int numero) {
         int hash = hash(numero);
         if (tablaHash[hash] == -1) {
             tablaHash[hash] = numero;
@@ -55,21 +51,25 @@ class TablaHashDesbordamiento {
     
     }
 
+    private int hash3(int key) {
+        return key=7-(key%7);  // Tercera función hash
+    }
+
     public static void main(String[] args) {
-        TablaHashDesbordamiento tablaHash = new TablaHashDesbordamiento(10);
+    TablaHashDesbordamiento tablaHash = new TablaHashDesbordamiento(2);
+    int[] keys={845, 601};
 
-        int numero1 =845;
-        int numero2=601;
+    tablaHash.searchDesbordamiento(288);
+    tablaHash.searchDesbordamiento(996);
+    tablaHash.addDesbordamiento(845);
+    tablaHash.addDesbordamiento(601);
 
-        TablaHashDesbordamiento.addDesbordamiento(numero1);
-        TablaHashDesbordamiento.addDesbordamiento(numero2);
-
-        
-
-}
+     for (int key : keys) {
+        tablaHash.hash3(key);
+    }
   
 }
-
+}
 
 
 
