@@ -52,7 +52,7 @@ public class P3{
     }
 
     public static void main(String[] args) {
-        P3 hashTable = new P3(10);
+        P3 hashTable = new P3(6);
 
         int[] keys = {125, 228, 172, 358, 288, 347};
 
