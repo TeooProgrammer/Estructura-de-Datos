@@ -47,9 +47,10 @@ public class P3{
         }
     }
 
-  private int hash3(int key) {
-        return (2*key+3)% 7;  // Segunda función hash
-  }
+    private int hash3(int key) {
+        return (2*key+3)% 7;  // Tercera función hash
+    }
+
     public static void main(String[] args) {
         P3 hashTable = new P3(10);
 
