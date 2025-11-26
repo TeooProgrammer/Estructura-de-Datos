@@ -11,13 +11,16 @@ public class MenuArbolB {
     bTree = new BTree(5);
     System.out.println("Árbol B creado con aridad = 5");
 
+    for(int i=0; i<17; i++){
+        System.out.println("Inserte clave: ");
+        String claveInsertar = scanner.nextLine();
+        bTree.addKey(claveInsertar);
+        System.out.println("Clave '" + claveInsertar + "' insertada");
+    }
 
-    String claveInsertar = scanner.nextLine();
-    bTree.addKey(claveInsertar);
-    System.out.println("Clave '" + 20  + "' insertada");
-    
     System.out.println("Contenido del Árbol B:");
     Transversal transversal = new Transversal(bTree);
+
         while (transversal.hasMoreElements()) {
             BNode nodo = (BNode) transversal.nextElement();
             Keys keys = nodo.getData();
@@ -26,8 +29,22 @@ public class MenuArbolB {
                 }
             System.out.println();
         }
+
     
+    for(int i=0; i<6; i++){
+        System.out.println("Clave a eliminar: ");
+        String claveBorrar = scanner.nextLine();
+        boolean eliminado = bTree.deleteKey(claveBorrar);
+        if (eliminado) {
+            System.out.println("Clave '" + claveBorrar + "' eliminada");
+            } else {
+                System.out.println("Clave '" + claveBorrar + "' no encontrada");
+                }
     }
+
+
+
+}
 
 }
 
