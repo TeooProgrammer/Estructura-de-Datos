@@ -48,14 +48,14 @@ public class P3{
     }
 
     private int hash3(int key) {
-        return (2*key+3)% 7;  // Tercera función hash
+        return (2*key+3)% 10;  // Tercera función hash
     }
 
     public static void main(String[] args) {
-        P3 hashTable = new P3(6);
+        P3 hashTable = new P3(12);
 
-        int[] keys = {125, 228, 172, 358, 288, 347};
-
+        int[] keys = {  4371, 1323, 6173, 4199, 4344, 9679, 1989 };
+// 
         
         for (int key : keys) {
             hashTable.insert(key);
